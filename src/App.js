@@ -20,7 +20,9 @@ class App extends React.Component {
     e.preventDefault();
 
     try {
-      let results = await axios.get(`${process.env.REACT_APP_SERVER}/photos?searchQuery=${this.state.searchQuery}`)
+      let url = `${process.env.REACT_APP_SERVER}/photos?searchQuery=${this.state.searchQuery}`;
+      console.log(url);
+      let results = await axios.get(url);
       this.setState({
         photoData: results.data,
         showImages: true,
